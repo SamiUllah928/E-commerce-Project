@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Add_Category, Change_Password, User_Load, User_Loading_Attempt, User_Loading_False, User_Loading_True, User_Login, User_Logout } from '../Types'
-import setaxiostoken from '../setaxiostoken'
+// import setaxiostoken from '../setaxiostoken'
 
 
 //Function for Login

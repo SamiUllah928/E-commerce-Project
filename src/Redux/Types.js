@@ -9,5 +9,15 @@ export let User_Load = "User_Load"
 export let Change_Password = "Change_Password"
 
 // Types of Category Functions
+export let Add_Category = "Add_Category "
+export let Get_All_Category = "Get_All_Category"
+export let Category_Loading_Attempt = "Category_Loading_Attempt"
+export let Category_Loading_True = "Category_Loading_True"
+export let Category_Loading_False = "Category_Loading_False"
 
-export let Add_Category = "Add_Category"
+
+// Types of Product Functions
+export let Add_Product = "Add_Product "
+export let Product_Loading_Attempt = "Product_Loading_Attempt"
+export let Product_Loading_True = "Product_Loading_True"
+export let Product_Loading_False = "Product_Loading_False"

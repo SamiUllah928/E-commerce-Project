@@ -1,0 +1,56 @@
+.decd{
+    display: block;
+}
+.linkss_bar{
+    display: none !important;
+}
+.linkss{
+    display: none ;
+    background-color:  transparent !important;
+    padding: auto !important;
+
+}
+.linkss ul{
+    list-style: none;
+  
+
+}
+.sibling h1{
+    display: none;
+}
+.parent h2{
+    display: none;
+}
+.parent:hover > h2{
+display: block;
+background-color: aquamarine;
+}
+
+@media screen and (max-width:610px) {
+    .links{
+        display: none !important;
+    }
+    .linkss_bar{
+        display: flex !important;
+       
+    }
+    .linkss ul{
+        display: flex !important;
+        flex-direction: column-reverse;
+        background-color: aqua;
+        margin: 1px;
+    }
+    .links ul li{
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .linkss_bar:hover .linkss,.linkss:hover{
+        display: flex;
+        position: fixed;
+        top: 80%;
+        transform: translateY(-50%);
+        left: 80%;
+
+    }
+    
+}

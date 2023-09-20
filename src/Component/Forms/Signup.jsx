@@ -26,14 +26,14 @@ export default function Signup() {
 
     }
 
-    useEffect(()=>{
-        setTimeout(() => {
-            if (data.isAuthenticated) {
+        useEffect(()=>{
+            setTimeout(() => {
+                if (data.isAuthenticated) {
 
-                navigate('/Login')
-            }
-        }, 2000);
-    },[data.isAuthenticated])
+                    navigate('/Login')
+                }
+            }, 2000);
+        },[data.isAuthenticated])
     return (
         <div className='Signup' style={{ marginTop: '40px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', gap: '25px' }}>

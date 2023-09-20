@@ -49,7 +49,7 @@ export default function Dashboard() {
   }, [])
   return (
     <div className='Dashboard'>
-      <div className="decd" style={{ display: 'flex',justifyContent:'center',alignItems:'center' }}>
+      <div className="decd" style={{ display: 'flex',justifyContent:'space-evenly',alignItems:'center' }}>
         <p style={{ width: '100px', height: '100px', backgroundColor: 'black', borderRadius: '50%', padding: '30px', textAlign: 'center', color: 'white', fontSize: '20px', fontWeight: '900', marginLeft: "30px", marginTop: '20px' }} ><b>User Information</b>:</p>
         <img src="https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg" alt="" style={{ width: '170px', height: '160px', borderRadius: "50%", marginTop: '20px', border: 'black' }} />
         <Button aria-describedby={id} variant="contained" color='success' onClick={handleClick} sx={{height:'auto'}}>
@@ -71,7 +71,7 @@ export default function Dashboard() {
           </Typography>
         </Popover>
       </div>
-      <Box sx={{ bgcolor: 'gray', color: 'white', p: '20px', display: 'flex', }}>
+      <Box sx={{ bgcolor: 'gray', color: 'white', p: '20px', display: 'flex',justifyContent:'space-around' }}>
 
         <p style={{ width: '100px', height: '100px', backgroundColor: 'black', borderRadius: '50%', padding: '30px', textAlign: 'center' }}><b>Username</b>: {data?.user?.username}</p>
         <p style={{ width: '100px', height: '100px', backgroundColor: 'black', borderRadius: '50%', padding: '30px', textAlign: 'center' }}><b>Email</b>: {data?.user?.email}</p>
