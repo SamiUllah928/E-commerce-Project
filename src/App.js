@@ -15,6 +15,7 @@ import Profile from './Component/Forms/Profile'
 import GetallCategory from './Component/Forms/GetallCategory'
 import AddProduct from './Component/Forms/addProduct'
 import { getallcategory } from './Redux/Action/categoryAction'
+import UpdateCategory from './Component/Forms/UpdateCategory'
 
 export default function App() {
   setaxiostoken(localStorage.token)
@@ -49,6 +50,7 @@ export default function App() {
           <Route path='/changepassword' element={<ChangePassword />} />
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/add' element={<AddProduct />} />
+          <Route path='/update-category-page' element={<UpdateCategory />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
         </Routes>

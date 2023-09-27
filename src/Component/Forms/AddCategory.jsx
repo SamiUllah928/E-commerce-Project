@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { Avatar, Box, Button, TextField, Typography, createTheme } from '@mui/material'
-import { addcategory } from '../../Redux/Action/authAction'
+import {useNavigate} from 'react-router-dom'
+import {  Box, Button, TextField, Typography, createTheme } from '@mui/material'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { Storage } from '../../firebase'
+import { addcategory, deletecategory, singlecategory } from '../../Redux/Action/categoryAction'
 export default function AddCategory() {
     const dispatch = useDispatch()
 
+    let catlist = useSelector(state => state.Category.categorylist)
+    console.log(catlist)
     let data = useSelector(state => state.Auth)
     console.log(data)
 
@@ -15,7 +17,6 @@ export default function AddCategory() {
     const [uploade, setupload] = useState()
     const [load, setload] = useState(false)
     const [prog, setprog] = useState()
-
 
     let handleAddcate = () => {
         let option = {
@@ -49,7 +50,17 @@ export default function AddCategory() {
     }
     console.log(addcata && addcata.length)
     const theme = createTheme()
+    const navigate = useNavigate()
+
+    const handleEdit = (id)=>{
+        console.log(id)
+        dispatch(singlecategory(id))
+        navigate('/update-category-page')
+    }
+
     return (
+        <>
+
         <div className='AddCategory'>
             <input type='file' id='upload' hidden onChange={(e) => handleUpload(e.target.files[0])} />
 
@@ -69,5 +80,25 @@ export default function AddCategory() {
                 <Button variant='outlined' color='success' onClick={handleAddcate} disabled={(!uploade || !addcata || addcata.length < 4) ? true : false} >{load ? `Progress: ${prog}%` : "Add Category"}</Button>
             </Box>
         </div>
+
+<Box>
+    <Typography variant='h4' sx={{textAlign:'center'}}>{catlist.length}</Typography>
+        <ul>
+
+            {
+                catlist?.map((cat)=><Box>
+                    <Typography>{cat.catagery_name ? cat.catagery_name : cat.name }</Typography>
+                    <Typography>{cat._id}</Typography>
+                    <Button variant='outlined' size='medium' onClick={()=>dispatch(deletecategory(cat._id))}>Delete</Button>
+                    <Button variant='outlined' size='small' onClick={()=>handleEdit(cat._id)}>Edit</Button>
+
+                </Box>)
+            }
+
+        </ul>
+    
+</Box>
+    
+        </>
     )
 }

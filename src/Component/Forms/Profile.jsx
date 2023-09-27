@@ -4,8 +4,8 @@ import {Edit} from '@mui/icons-material'
 import { useSelector, useDispatch } from 'react-redux';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { Storage } from '../../firebase'
-import { addcategory } from '../../Redux/Action/authAction';
 import { useNavigate } from 'react-router-dom';
+import { addcategory } from '../../Redux/Action/categoryAction';
 
 export default function Profile() {
     const theme = createTheme()

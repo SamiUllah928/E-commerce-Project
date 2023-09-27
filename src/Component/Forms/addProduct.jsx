@@ -7,7 +7,6 @@ import { addproduct } from '../../Redux/Action/ProductAction';
 export default function AddProduct() {
     const theme = createTheme()
     const catlist = useSelector(state => state.Category.categorylist)
-
     const dispatch = useDispatch()
 
     //States
@@ -21,7 +20,6 @@ export default function AddProduct() {
     const [brand, setbrand] = useState()
     const [discount, setdiscount] = useState()
 
-
     const handleSubmit = () => {
         const option = {
             productTitle,
@@ -34,9 +32,9 @@ export default function AddProduct() {
         dispatch(addproduct(option))
     }
 
-
-
-    useEffect(() => { dispatch(getallcategory()) }, [dispatch])
+    useEffect(() => {
+         dispatch(getallcategory()) },
+          [dispatch])
     console.log(catagery)
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>

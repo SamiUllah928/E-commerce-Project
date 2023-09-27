@@ -14,6 +14,9 @@ export let Get_All_Category = "Get_All_Category"
 export let Category_Loading_Attempt = "Category_Loading_Attempt"
 export let Category_Loading_True = "Category_Loading_True"
 export let Category_Loading_False = "Category_Loading_False"
+export let Delete_Category = "Delete_Category"
+export let Update_Category = "Update_Category"
+export let Single_Category = "Single_Category"
 
 
 // Types of Product Functions

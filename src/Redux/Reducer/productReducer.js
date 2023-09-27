@@ -1,8 +1,9 @@
 import { Add_Product, Product_Loading_Attempt, Product_Loading_False, Product_Loading_True } from "../Types";
 
 const initialstate={
-    addproducts: [],
-    product :{},
+    allproducts: [],
+    userproducts:[],
+    singleproduct :{},
     loading: false
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 // import { getallcatageries } from '../../Redux/Action/categoryAction'
 import MenuIcon from '@mui/icons-material/Menu';
 import { getallcategory } from '../../Redux/Action/categoryAction';

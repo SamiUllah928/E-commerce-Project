@@ -1,38 +1,61 @@
-import { Category_Loading_Attempt, Category_Loading_False, Category_Loading_True, Get_All_Category } from "../Types";
+import { Add_Category, Category_Loading_Attempt, Category_Loading_False, Category_Loading_True, Delete_Category, Get_All_Category, Single_Category, Update_Category } from "../Types";
 
 
 
-const initialState ={
+const initialState = {
     categorylist: [],
-    category:{},
-    loading:false
+    category: {},
+    loading: false
 }
-const categoryReducer = (state = initialState , action) => {
+const categoryReducer = (state = initialState, action) => {
     switch (action.type) {
         case Category_Loading_Attempt:
-            return{
+            return {
                 ...state,
-                loading:true
+                loading: true
             }
-            case Category_Loading_True:
-                return{
-                    ...state,
-                    loading:false
-                }
-                case Category_Loading_False:
-                    return{
-                        ...state,
-                        loading: false
-                    }
-                    case Get_All_Category:
-                        return{
-                            ...state,
-                            categorylist:action.payload
-                        }
+        case Category_Loading_True:
+            return {
+                ...state,
+                loading: false
+            }
+        case Category_Loading_False:
+            return {
+                ...state,
+                loading: false
+            }
+        case Get_All_Category:
+            return {
+                ...state,
+                categorylist: action.payload
+            }
+        case Add_Category:
+            return {
+                ...state,
+                categorylist: [...state.categorylist,action.payload]
+            }
+        case Delete_Category:
+            return {
+                ...state,
+                categorylist: state.categorylist.filter((cat)=>cat._id !== action.payload)
+            }
+        case Single_Category:
+            return {
+                ...state,
+                category: action.payload
+            }
+        case Update_Category:
+            const index = state.categorylist.findIndex((cat)=>cat._id === action.payload._id)
+            state.categorylist.splice(index,1,action.payload)
+            return {
+                ...state,
+                category:action.payload,
+                categorylist:state.categorylist
+            }
         default:
-          return{
-            ...state,
-          }
+            return {
+                ...state,
+            }
     }
 
 }
