@@ -60,7 +60,6 @@ export default function AddCategory() {
 
     return (
         <>
-
         <div className='AddCategory'>
             <input type='file' id='upload' hidden onChange={(e) => handleUpload(e.target.files[0])} />
 
@@ -85,7 +84,7 @@ export default function AddCategory() {
     <Typography variant='h4' sx={{textAlign:'center'}}>{catlist.length}</Typography>
         <ul>
 
-            {
+            {   
                 catlist?.map((cat)=><Box>
                     <Typography>{cat.catagery_name ? cat.catagery_name : cat.name }</Typography>
                     <Typography>{cat._id}</Typography>

@@ -24,11 +24,11 @@ try {
     
     let mylog= await axios.get('http://localhost:5000/catagery/')
     console.log(mylog)
-    dispatch({type:Get_All_Category,payload:mylog.data.categoryList})
+    dispatch({type:Get_All_Category,payload:mylog?.data?.categoryList})
     dispatch({type:Category_Loading_True})
 } catch (error) {
     console.log(error)
-    dispatch({type:Category_Loading_False})
+    dispatch({type:Category_Loading_False, payload: error.response.data})
 }
 }
 
