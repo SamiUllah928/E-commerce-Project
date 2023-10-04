@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, createTheme } from '@mui/material'
+import { Avatar, Button, createTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { SubjectOutlined } from '@mui/icons-material'
@@ -15,11 +15,14 @@ export const Header = () => {
     let handleLogIn = () => {
         navigate('/Login')
     }
-    let handleHome = () => {
-        navigate('/Home')
-    }
+    // let handleHome = () => {
+    //     navigate('/Home')
+    // }
     let handleDashboard = () => {
         navigate('/Dashboard')
+    }
+    let handleAddShop = () => {
+        navigate('/AddShop')
     }
     const theme = createTheme()
     return (
@@ -30,10 +33,11 @@ export const Header = () => {
                 </div>
                 <div className="links">
                     <ul style={{ display: 'flex', gap: '10%', alignItems: 'center', listStyle: 'none', padding: 0 }}>
-                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={handleHome}>Home</li>
-                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Content</li>
-                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Profile</li>
-                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Links</li>
+                        {/* <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={handleHome}>Home</li> */}
+                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={handleAddShop}>Shop </li>
+                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={()=> navigate('/addcategory')}>Category</li>
+                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={()=> navigate('/add')}>Product</li>
+                        <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>AboutUs</li>
                     </ul>
                 </div>
                 <div className="btn" style={{ display: auth ? 'none' : 'flex', gap: '10%' }}>
@@ -41,8 +45,9 @@ export const Header = () => {
                     <Button variant='contained' size='small' onClick={handleLogIn}>Login</Button>
                 </div>
 
-                <div className="btn" style={{ display: !auth ? 'none' : 'flex' }}>
-                    <Button variant='contained' size='large' color='success' onClick={handleDashboard}>Dashboard</Button>
+                <div className="btn" style={{ display: !auth ? 'none' : 'flex', display:'flex', gap:'20px' }}>
+                    <Button variant='contained' size='medium' color='success' onClick={handleDashboard}>Dashboard</Button>
+                    <Avatar alt="Travis Howard" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg"></Avatar>
                 </div>
             </div>
             <SubjectOutlined className='linkss_bar' sx={{ position: 'fixed', top: '90%', left: '90%', fontSize: '35px', boxShadow: theme.shadows[10], cursor: 'pointer' }} />
@@ -50,7 +55,7 @@ export const Header = () => {
             <div className="linkss">
 
                 <ul>
-                    <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={handleHome}>Home</li>
+                    {/* <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }} onClick={handleHome}>Home</li> */}
                     <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Content</li>
                     <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Profile</li>
                     <li style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}>Links</li>

@@ -16,6 +16,10 @@ import GetallCategory from './Component/Forms/GetallCategory'
 import AddProduct from './Component/Forms/addProduct'
 import { getallcategory } from './Redux/Action/categoryAction'
 import UpdateCategory from './Component/Forms/UpdateCategory'
+import AddShop from './Component/Forms/AddShop'
+import { getusershop } from './Redux/Action/shopAction'
+import GetallShops from './Component/Forms/GetallShops'
+import UpdateShop from './Component/Forms/UpdateShop'
 
 export default function App() {
   setaxiostoken(localStorage.token)
@@ -24,24 +28,13 @@ export default function App() {
   useEffect(()=>{
     dispatch(loaduser())
     dispatch(getallcategory())
+    dispatch(getusershop())
   },[dispatch])
   return (
     <div className='App'>
       <BrowserRouter>
         <Header/>
-        {/* <div className='parent'>
-          parent
-          <h2>Hello Parent 1</h2>
-          <div>
-          <h2>Hello Parent 2</h2>
-          <h2>Hello Parent 3</h2>
-          <h2>Hello Parent 4</h2>
-          </div>
-         
-        </div> */}
-        {/* <div className='sibling'>
-          <h1>Hello sibling</h1>
-        </div> */}
+    
         <Routes>
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<Profile />} />
@@ -51,8 +44,11 @@ export default function App() {
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/add' element={<AddProduct />} />
           <Route path='/update-category-page' element={<UpdateCategory />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/addshop' element={<AddShop />} />
+          <Route path='/allshops' element={<GetallShops />} />
+          <Route path='/updateshop' element={<UpdateShop />} />
         </Routes>
       </BrowserRouter>
     </div>

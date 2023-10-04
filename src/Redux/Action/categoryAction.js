@@ -52,7 +52,6 @@ try {
 
 
 // Update Category Function
-
 export let updatecategory = (id,option) => async (dispatch) => {
 try {
     dispatch({type: Category_Loading_Attempt})
